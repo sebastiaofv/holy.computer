@@ -1,9 +1,204 @@
-<html>
-    <head>
-        <title>Holy Computer</title>
-    </head>
-    <body>
-        <h1>Holy Computer</h1>
-        <img src="jesus.jpg" alt="Holy Jesus">
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holy Computer</title>
+    <style>
+        @font-face {
+            font-family: 'TempleOS';
+            src: url('https://cdn.jsdelivr.net/gh/nickmass/tempos-font/tempos.woff2') format('woff2');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            image-rendering: pixelated;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'TempleOS', 'Courier New', monospace;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .window {
+            background: #000;
+            border: 3px solid #0ff;
+            box-shadow: 
+                inset 2px 2px 0 #0ff,
+                inset -2px -2px 0 #008080,
+                6px 6px 0 #008080;
+            max-width: 640px;
+            width: 100%;
+        }
+
+        .title-bar {
+            background: linear-gradient(to right, #0ff, #008080);
+            color: #000;
+            padding: 4px 8px;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #0ff;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .title-bar span {
+            color: #ff0;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #0ff;
+            font-size: 32px;
+            text-shadow: 2px 2px 0 #008080;
+            margin-bottom: 10px;
+            letter-spacing: 4px;
+        }
+
+        .subtitle {
+            color: #ff0;
+            font-size: 14px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .img-container {
+            border: 2px solid #f0f;
+            padding: 4px;
+            background: #000;
+            display: inline-block;
+            margin: 15px 0;
+            box-shadow: 4px 4px 0 #800080;
+        }
+
+        .img-container img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            filter: contrast(1.2) saturate(0.8);
+        }
+
+        .verse {
+            color: #0f0;
+            font-size: 12px;
+            margin: 20px 0;
+            padding: 10px;
+            border-left: 3px solid #0f0;
+            text-align: left;
+            background: rgba(0, 255, 0, 0.05);
+        }
+
+        .prompt {
+            color: #fff;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .prompt::before {
+            content: ">";
+            color: #0ff;
+            margin-right: 8px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 16px;
+            background: #0ff;
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .footer-bar {
+            background: #008080;
+            color: #000;
+            padding: 4px 8px;
+            font-size: 12px;
+            border-top: 2px solid #0ff;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .rainbow {
+            background: linear-gradient(90deg, #f00, #ff0, #0f0, #0ff, #00f, #f0f);
+            height: 4px;
+            width: 100%;
+        }
+
+        /* Scanline effect */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.1),
+                rgba(0, 0, 0, 0.1) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            z-index: 1000;
+        }
+
+        .cross {
+            color: #ff0;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="scanlines"></div>
+    
+    <div class="window">
+        <div class="rainbow"></div>
+        <div class="title-bar">
+            <span>†</span> HOLY COMPUTER <span>†</span>
+        </div>
+        
+        <div class="content">
+            <h1>✝ HOLY COMPUTER ✝</h1>
+            <p class="subtitle">God's Third Temple - Est. 2025</p>
+            
+            <div class="img-container">
+                <img src="jesus.jpg" alt="Holy Jesus">
+            </div>
+            
+            <div class="verse">
+                "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."<br>
+                <span style="color: #0ff;">- John 3:16</span>
+            </div>
+        </div>
+        
+        <div class="footer-bar">
+            <span>640x480 16 COLOR</span>
+            <span>PUBLIC DOMAIN</span>
+        </div>
+        <div class="rainbow"></div>
+    </div>
+</body>
 </html>
