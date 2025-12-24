@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarioCanalizações | Excelência Técnica na Lourinhã</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Lora:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --navy: #0a192f;
+            --accent: #2c5282;
+            --silver: #e2e8f0;
+            --text: #2d3748;
+            --white: #ffffff;
+            --emergency: #c53030;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.7; background-color: var(--white); scroll-behavior: smooth; }
+        
+        /* --- Navigation --- */
+        nav {
+            background: var(--white);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .logo { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700; color: var(--navy); }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- Hero --- */
+        .hero {
+            padding-top: 120px;
+            min-height: 90vh;
+            background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url('https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=80&w=1500');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+        .hero-content { max-width: 900px; padding: 0 20px; }
+        .hero h1 { font-family: 'Lora', serif; font-size: 3.5rem; margin-bottom: 1.5rem; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+        .btn-emergency {
+            background: var(--emergency);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 800;
+            display: inline-block;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-emergency:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(197, 48, 48, 0.3); }
+
+        /* --- Sections General --- */
+        section { padding: 100px 10%; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-family: 'Lora', serif; font-size: 2.5rem; color: var(--navy); margin-bottom: 10px; }
+        .section-header .line { width: 60px; height: 3px; background: var(--accent); margin: 0 auto; }
+
+        /* --- About --- */
+        .about { display: flex; align-items: center; gap: 50px; background: #f8fafc; }
+        .about-text { flex: 1; }
+        .about-img { flex: 1; border-radius: 10px; overflow: hidden; box-shadow: 20px 20px 0 var(--silver); }
+        .about-img img { width: 100%; display: block; }
+
+        /* --- Services --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-item { padding: 40px; border: 1px solid var(--silver); border-radius: 8px; transition: 0.3s; }
+        .service-item:hover { border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .service-item i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; }
+        .service-item h3 { margin-bottom: 15px; color: var(--navy); }
+
+        /* --- Process --- */
+        .process { background: var(--navy); color: var(--white); }
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
+        .step { position: relative; }
+        .step-number { font-size: 4rem; font-weight: 800; opacity: 0.1; position: absolute; top: -20px; left: 50%; transform: translateX(-50%); }
+        .step h4 { margin-top: 20px; font-size: 1.2rem; }
+
+        /* --- Testimonials --- */
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .testimonial-card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); font-style: italic; border-top: 4px solid var(--accent); }
+        .client-name { display: block; margin-top: 15px; font-weight: 700; font-style: normal; color: var(--navy); }
+
+        /* --- Contact/WhatsApp --- */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            z-index: 1001;
+        }
+
+        footer { background: var(--navy); color: var(--white); padding: 60px 10%; text-align: center; }
+        .footer-info { margin-bottom: 30px; }
+        .footer-info p { opacity: 0.7; }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .about { flex-direction: column; }
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            section { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MARIO<span>CANALIZAÇÕES</span></div>
+        <ul class="nav-links">
+            <li><a href="#sobre">A EMPRESA</a></li>
+            <li><a href="#servicos">SERVIÇOS</a></li>
+            <li><a href="#processo">MÉTODO</a></li>
+            <li><a href="#testemunhos">CLIENTES</a></li>
+            <li><a href="tel:+351910000000">LIGAR AGORA</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Soluções de Engenharia e Canalização na Lourinhã</h1>
+            <p>Mais do que reparações, oferecemos a tranquilidade de um serviço executado com rigor técnico, limpeza e pontualidade britânica.</p>
+            <a href="tel:+351910000000" class="btn-emergency"><i class="fas fa-phone-alt"></i> Emergência 24H: 910 000 000</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="about">
+        <div class="about-text">
+            <div class="section-header" style="text-align: left;">
+                <h2>Compromisso com a Lourinhã</h2>
+                <div class="line" style="margin: 0;"></div>
+            </div>
+            <p>Com anos de experiência a servir as famílias e empresas da nossa região, o Mário Canalizações tornou-se sinónimo de confiança. Não somos apenas "o senhor dos canos"; somos parceiros que valorizam o seu património.</p>
+            <br>
+            <p>Desde o centro da vila até às praias, garantimos uma resposta rápida e um diagnóstico honesto. Na nossa casa, a palavra dada é honrada com trabalho de classe.</p>
+        </div>
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7e8c?auto=format&fit=crop&q=80&w=800" alt="Trabalho Profissional">
+        </div>
+    </section>
+
+    <section id="servicos">
+        <div class="section-header">
+            <h2>Especialidades de Elite</h2>
+            <div class="line"></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-item">
+                <i class="fas fa-tools"></i>
+                <h3>Manutenção Preventiva</h3>
+                <p>Inspeções detalhadas para evitar inundações e danos estruturais dispendiosos.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-tint-slash"></i>
+                <h3>Deteção de Fugas</h3>
+                <p>Tecnologia avançada para localizar fugas sem necessidade de intervenções destrutivas.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-fire"></i>
+                <h3>Sistemas de Aquecimento</h3>
+                <p>Instalação e reparação de caldeiras e esquentadores com certificação de segurança.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-vial"></i>
+                <h3>Remodelações de WC</h3>
+                <p>Transformamos a sua casa de banho com acabamentos modernos e canalização de última geração.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="processo" class="process">
+        <div class="section-header">
+            <h2 style="color: white;">O Nosso Padrão</h2>
+            <div class="line"></div>
+        </div>
+        <div class="process-grid">
+            <div class="step">
+                <span class="step-number">01</span>
+                <h4>Diagnóstico Rigoroso</h4>
+                <p>Avaliamos o problema na origem antes de propor a solução.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">02</span>
+                <h4>Orçamento Transparente</h4>
+                <p>Sem surpresas na fatura. Preços justos e explicados.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">03</span>
+                <h4>Execução Limpa</h4>
+                <p>Trabalhamos com o máximo respeito pelo asseio da sua casa.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">04</span>
+                <h4>Garantia Pós-Venda</h4>
+                <p>Acompanhamos o cliente mesmo após a conclusão do serviço.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testemunhos">
+        <div class="section-header">
+            <h2>Testemunhos de Confiança</h2>
+            <div class="line"></div>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                "Excelente serviço na minha moradia em Lordeñã. Profissional muito educado, explicou tudo o que estava a fazer e deixou a cozinha impecável."
+                <span class="client-name">- Ricardo Santos, Empresário</span>
+            </div>
+            <div class="testimonial-card">
+                "Tive uma inundação num domingo à noite e o Mário foi o único que atendeu e resolveu. Um verdadeiro salva-vidas aqui na zona."
+                <span class="client-name">- Helena Matos, Professora</span>
+            </div>
+            <div class="testimonial-card">
+                "Fizeram a canalização nova de toda a casa. Trabalho limpo, rápido e com materiais de alta qualidade. Recomendo vivamente."
+                <span class="client-name">- João Pereira, Arquiteto</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <div class="logo" style="color: white; margin-bottom: 20px;">MARIO<span>CANALIZAÇÕES</span></div>
+            <p>Lourinhã - A Capital da Qualidade no Oeste</p>
+            <p>Email: geral@mariocanalizacoes.pt | Tel: 910 000 000</p>
+        </div>
+        <p style="font-size: 0.8rem; opacity: 0.5;">&copy; 2025 Mario Canalizações. Rigor e Classe na Lourinhã.</p>
+    </footer>
+
+    <a href="https://wa.me/351910000000" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i> WhatsApp do Mário
+    </a>
+
+</body>
+</html>
