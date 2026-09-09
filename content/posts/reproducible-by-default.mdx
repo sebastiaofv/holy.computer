@@ -1,0 +1,52 @@
+---
+title: "Reproducible by default"
+date: "2026-06-21"
+description: "A model you can't rerun a year later is a screenshot."
+---
+
+The most expensive bug I've met wasn't wrong maths. It was a model nobody could
+rerun. The numbers were in a report, the report was in a PDF, and the code that
+produced it had drifted three refactors past the version that ran that morning.
+
+A result you can't reproduce isn't a result. It's a screenshot.
+
+## The cheap version
+
+You don't need a platform for this. You need three things pinned:
+
+1. **The inputs.** Content-address them. A hash in the output means you can
+   always answer "which data was this?"
+2. **The code.** A commit SHA recorded next to the result, not inferred from a
+   deploy log.
+3. **The environment.** A lockfile, committed. Not "we install the usual
+   packages."
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class RunContext:
+    """Stamped onto every artifact a run produces."""
+    commit: str        # git rev-parse HEAD
+    inputs_hash: str   # sha256 over the sorted input manifest
+    env_hash: str      # sha256 of the lockfile
+
+    def key(self) -> str:
+        return f"{self.commit[:12]}-{self.inputs_hash[:8]}-{self.env_hash[:8]}"
+```
+
+Stamp that on the output. Now "rerun last March's forecast" is a lookup, not an
+archaeology project.
+
+## The part people skip
+
+Determinism is a choice you make repeatedly, not once. Unsorted dictionary
+iteration, an unseeded RNG, a `now()` buried in a helper &mdash; each is a small
+crack, and they compound.
+
+The test that saves you is dull: run the pipeline twice, assert the outputs are
+byte-identical. It catches nearly everything, and it costs one CI job.
+
+> If it isn't in the lockfile, it isn't in the model.
+
+None of this is clever. That's rather the point.

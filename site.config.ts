@@ -1,0 +1,13 @@
+/**
+ * Every piece of "who am I" content lives here.
+ * Edit this file first — the pages read from it.
+ */
+export const site = {
+  name: "Sebastião Vicente",
+  title: "Sebastião Vicente",
+  description:
+    "Quantitative developer at Banco de Portugal. I build things that measure things.",
+  url: "https://holy.computer",
+  email: "sebastiaofv@gmail.com",
+  locale: "en",
+} as const;
