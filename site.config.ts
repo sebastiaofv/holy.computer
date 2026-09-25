@@ -6,7 +6,7 @@ export const site = {
   name: "Sebastião Vicente",
   title: "Sebastião Vicente",
   description:
-    "Quantitative developer at Banco de Portugal. I build things that measure things.",
+    "Quantitative developer at Banco de Portugal.",
   url: "https://holy.computer",
   email: "sebastiaofv@gmail.com",
   locale: "en",
