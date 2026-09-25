@@ -10,7 +10,7 @@ export default function Home() {
 
       {/* ---- Intro ------------------------------------------------------ */}
       <p>
-        I&rsquo;m a quantitative developer at the{" "}
+        I&rsquo;m a quantitative developer at{" "}
         <a href="https://www.bportugal.pt/en" target="_blank" rel="noreferrer">
           Banco de Portugal
         </a>
