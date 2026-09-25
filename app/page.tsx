@@ -14,19 +14,11 @@ export default function Home() {
         <a href="https://www.bportugal.pt/en" target="_blank" rel="noreferrer">
           Banco de Portugal
         </a>
-        . I build the models and the pipelines underneath them &mdash; the
-        boring infrastructure that decides whether a number is trustworthy.
+        . I work on models, data systems, and the infrastructure behind them. Mostly finance, forecasting, risk, and the less visible parts that make the rest hold up.
       </p>
 
       <p>
-        Most of my work lives at the seam between finance and software: risk and
-        forecasting models, the data that feeds them, and the tooling that keeps
-        both reproducible a year later.
-      </p>
-
-      <p>
-        I care about systems you can reason about end to end. Small pieces, clear
-        interfaces, no magic in the middle.
+        I care about invariants, simple interfaces, and code that holds up under scrutiny.
       </p>
 
       <p>
